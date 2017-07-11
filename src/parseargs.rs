@@ -2,28 +2,30 @@ use std::env;
 use constants;
 
 
-struct ConfigArgs {
-    passLength: usize,
-    printHelp: bool,
-    enableDigit: bool,
-    enableUpper: bool,
-    enableLower: bool,
-    enableSpecial: bool
+pub struct ConfigArgs {
+    pub pass_length: usize,
+    pub print_help: bool,
+    pub enable_digit: bool,
+    pub enable_upper: bool,
+    pub enable_lower: bool,
+    pub enable_special: bool,
 }
 
 impl ConfigArgs {
     pub fn new() -> ConfigArgs {
         ConfigArgs {
-            passLength: constants::DEFAULT_PASS_LEN,
-            printHelp: false,
-            enableLower: true,
-            enableUpper: true,
-            enableDigit: true,
-            enableSpecial: true
+            pass_length: constants::DEFAULT_PASS_LEN,
+            print_help: false,
+            enable_lower: true,
+            enable_upper: true,
+            enable_digit: true,
+            enable_special: true,
         }
     }
 
-    pub fn readArgs(&mut self) {
-        unimplemented!();
+    pub fn read_args(&mut self) {
+        for a in env::args() {
+            println!("{:?}", a);
+        }
     }
 }
