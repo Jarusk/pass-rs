@@ -2,5 +2,6 @@
 name = "pass-rs"
 version = "0.1.0"
 authors = ["Matt Yaraskavitch <yaraskavitch.matt@gmail.com>"]
+license = "GPL-3.0"
 
 [dependencies]
