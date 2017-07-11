@@ -19,5 +19,5 @@ fn main() {
         pass.push(abc.get_char());
     }
 
-    println!("{:?}", pass);
+    println!("{}", pass);
 }

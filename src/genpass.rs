@@ -33,8 +33,10 @@ impl Alphabet {
         }
 
         if config.enable_digit {
-            for c in 48u8..57u8 + 1 {
-                chars.push(c as char);
+            for _ in 0..2 {
+                for c in 48u8..57u8 + 1 {
+                    chars.push(c as char);
+                }
             }
         }
 
