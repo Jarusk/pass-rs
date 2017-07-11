@@ -19,13 +19,13 @@ impl ConfigArgs {
             enable_lower: true,
             enable_upper: true,
             enable_digit: true,
-            enable_special: true,
+            enable_special: false,
         }
     }
 
     pub fn read_args(&mut self) {
         for a in env::args() {
-            println!("{:?}", a);
+            //println!("{:?}", a);
         }
     }
 }
