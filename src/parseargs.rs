@@ -19,7 +19,7 @@ impl ConfigArgs {
             enable_lower: constants::DEFAULT_ENABLE_LOWER,
             enable_upper: constants::DEFAULT_ENABLE_UPPER,
             enable_digit: constants::DEFAULT_ENABLE_DIGIT,
-            enable_special: constants::DEFAULT_ENABLE_SPECIAL
+            enable_special: constants::DEFAULT_ENABLE_SPECIAL,
         }
     }
 
