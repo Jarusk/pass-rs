@@ -1,4 +1,6 @@
 use std::env;
+use std::str::FromStr;
+
 use constants;
 
 
@@ -24,8 +26,32 @@ impl ConfigArgs {
     }
 
     pub fn read_args(&mut self) {
-        for _ in env::args() {
-            //println!("{:?}", a);
+        for (count, arg) in env::args().enumerate() {
+            match arg.as_ref() {
+                "-nl" => {self.enable_lower = false},
+                "-nu" => {self.enable_upper = false},
+                "-nd" => {self.enable_digit = false},
+                "-s" => {self.enable_special = true},
+                "-h" | "--help" => {self.print_help = true},
+                _ => {if count > 0 {self.validate_possible_numeric(arg.as_ref())}}
+            }
         }
+
+        if !self.enable_digit && !self.enable_lower && !self.enable_upper && !self.enable_special {
+            println!("ERROR: can't disable entire alphabet!\n");
+            self.print_help = true;
+        }
+    }
+
+    fn validate_possible_numeric(&mut self, arg: &str){
+        let parse_attempt = usize::from_str(arg);
+
+        if parse_attempt.is_ok() {
+            self.pass_length = parse_attempt.unwrap();
+            return;
+        }
+
+        println!("ERROR: invalid argument \"{}\"\n", &arg);
+        self.print_help = true;
     }
 }

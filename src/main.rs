@@ -27,7 +27,7 @@ fn main() {
     let mut pass = String::new();
 
     // Build our password
-    for _ in 0..constants::DEFAULT_PASS_LEN {
+    for _ in 0..config.pass_length {
         pass.push(abc.get_char());
     }
 
@@ -42,10 +42,11 @@ fn print_usage() {
     message += "By default, the password is 38 characters long.\n";
     message += "For a custom length, simply specify a numeric length as an argument.\n\n";
     message += "Options:\n";
-    message += "-nl    Disable lowercase characters\n";
-    message += "-nu    Disable uppercase characters\n";
-    message += "-nd    Disable numeric characters\n";
-    message += "-s     Enable special characters in generations (!, @, #, $, etc)\n\n";
+    message += "-nl            Disable lowercase characters\n";
+    message += "-nu            Disable uppercase characters\n";
+    message += "-nd            Disable numeric characters\n";
+    message += "-s             Enable special characters in generations (!, @, #, $, etc)\n";
+    message += "-h, --help     Print this help dialogue\n\n";
 
     println!("{}", &message);
 }
