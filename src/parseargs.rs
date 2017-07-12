@@ -28,12 +28,16 @@ impl ConfigArgs {
     pub fn read_args(&mut self) {
         for (count, arg) in env::args().enumerate() {
             match arg.as_ref() {
-                "-nl" => {self.enable_lower = false},
-                "-nu" => {self.enable_upper = false},
-                "-nd" => {self.enable_digit = false},
-                "-s" => {self.enable_special = true},
-                "-h" | "--help" => {self.print_help = true},
-                _ => {if count > 0 {self.validate_possible_numeric(arg.as_ref())}}
+                "-nl" => self.enable_lower = false,
+                "-nu" => self.enable_upper = false,
+                "-nd" => self.enable_digit = false,
+                "-s" => self.enable_special = true,
+                "-h" | "--help" => self.print_help = true,
+                _ => {
+                    if count > 0 {
+                        self.validate_possible_numeric(arg.as_ref())
+                    }
+                }
             }
         }
 
@@ -48,7 +52,7 @@ impl ConfigArgs {
         }
     }
 
-    fn validate_possible_numeric(&mut self, arg: &str){
+    fn validate_possible_numeric(&mut self, arg: &str) {
         let parse_attempt = usize::from_str(arg);
 
         if parse_attempt.is_ok() {

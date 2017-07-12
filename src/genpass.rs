@@ -27,7 +27,9 @@ impl Alphabet {
         }
 
         if config.enable_digit {
-            chars.append(&mut constants::TWICE_DIGITS.to_vec());
+            let mut digits = constants::DIGITS.to_vec();
+            chars.append(&mut digits.clone());
+            chars.append(&mut digits);
         }
 
         let size = chars.len();
