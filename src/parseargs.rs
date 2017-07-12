@@ -15,11 +15,11 @@ impl ConfigArgs {
     pub fn new() -> ConfigArgs {
         ConfigArgs {
             pass_length: constants::DEFAULT_PASS_LEN,
-            print_help: false,
-            enable_lower: true,
-            enable_upper: true,
-            enable_digit: true,
-            enable_special: false,
+            print_help: constants::DEFAULT_PRINT_HELP,
+            enable_lower: constants::DEFAULT_ENABLE_LOWER,
+            enable_upper: constants::DEFAULT_ENABLE_UPPER,
+            enable_digit: constants::DEFAULT_ENABLE_DIGIT,
+            enable_special: constants::DEFAULT_ENABLE_SPECIAL
         }
     }
 
