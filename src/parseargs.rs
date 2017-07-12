@@ -41,6 +41,11 @@ impl ConfigArgs {
             println!("ERROR: can't disable entire alphabet!\n");
             self.print_help = true;
         }
+
+        if self.pass_length < 1 {
+            println!("ERROR: password length must be greater than 0\n");
+            self.print_help = true;
+        }
     }
 
     fn validate_possible_numeric(&mut self, arg: &str){
