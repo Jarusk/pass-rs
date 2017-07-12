@@ -8,9 +8,9 @@ I recently picked up a [Yubikey 4 nano](https://www.yubico.com/products/yubikey-
 Curiously, the [Yubikey Personalization Tool](https://github.com/Yubico/yubikey-personalization) doesn't include a tool to auto-generate a strong password. So, I decided to write pass-rs as a simple tool for generating strong static passwords to be stored in password managers.
 
 ## Design
-This tool uses a custom RNG based on the [KISS RNG ](http://www0.cs.ucl.ac.uk/staff/D.Jones/GoodPracticeRNG.pdf) originally proposed by G.Marsaglia. The tool uses this to emit a password based solely on ASCII characters for broad compatibility.
-
 By default, these passwords are 38 characters long, the max supported by Yubikeys with firmware >= 2.2. For lesser firmware versions , the limit is 16 characters so a different length can be specified.
+
+Obviously, static passwords of any length can be generated for other uses as well.
 
 ## Installation
 Make sure you've got the standard rust toolchain installed (see [Rustup](https://www.rustup.rs/) for help).
