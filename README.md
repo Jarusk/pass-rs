@@ -25,3 +25,16 @@ cargo install
 ```
 
 ## Usage
+```
+Usage: pass-rs: [options] [len]
+
+By default, the password is 38 characters long.
+For a custom length, simply specify a numeric length as an argument.
+
+Options:
+-nl            Disable lowercase characters
+-nu            Disable uppercase characters
+-nd            Disable numeric characters
+-s             Enable special characters in generations (!, @, #, $, etc)
+-h, --help     Print this help dialogue
+```
