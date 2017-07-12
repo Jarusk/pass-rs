@@ -15,8 +15,8 @@ impl Alphabet {
         let mut chars = Vec::new();
 
         if config.enable_special {
-            for c in constants::SPECIAL_CHARS.into_iter() {
-                chars.push(c.clone());
+            for c in &constants::SPECIAL_CHARS {
+                chars.push(c.to_owned());
             }
         }
 

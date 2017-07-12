@@ -24,7 +24,7 @@ impl ConfigArgs {
     }
 
     pub fn read_args(&mut self) {
-        for a in env::args() {
+        for _ in env::args() {
             //println!("{:?}", a);
         }
     }
