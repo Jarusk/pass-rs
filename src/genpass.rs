@@ -1,5 +1,5 @@
 use rand::distributions::{IndependentSample, Range};
-use rand;
+use rand::{self, Isaac64Rng, SeedableRng, Rng};
 
 use parseargs::ConfigArgs;
 use constants;
@@ -7,7 +7,7 @@ use constants;
 pub struct Alphabet {
     chars: Vec<char>,
     range: Range<usize>,
-    rng: rand::ThreadRng,
+    rng: Isaac64Rng,
 }
 
 impl Alphabet {
@@ -33,11 +33,17 @@ impl Alphabet {
         }
 
         let size = chars.len();
+        let mut seed = [0u64; 256];
+        let mut tmp_rng = rand::thread_rng();
+
+        for i in 0..256 {
+            seed[i] = tmp_rng.next_u64();
+        }
 
         Alphabet {
             chars: chars,
             range: Range::new(0, size),
-            rng: rand::thread_rng(),
+            rng: Isaac64Rng::from_seed(&seed),
         }
     }
 

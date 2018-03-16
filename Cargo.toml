@@ -5,4 +5,4 @@ authors = ["Matt Yaraskavitch <yaraskavitch.matt@gmail.com>"]
 license = "GPL-3.0"
 
 [dependencies]
-rand = "0.3"
+rand = "0.4"
