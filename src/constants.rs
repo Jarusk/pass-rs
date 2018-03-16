@@ -6,7 +6,7 @@ pub const DEFAULT_ENABLE_DIGIT: bool = true;
 pub const DEFAULT_ENABLE_SPECIAL: bool = false;
 
 
-pub const SPECIAL_CHARS: [char; 6] = ['!', '#', '$', '%', '&', '*'];
+pub const SPECIAL_CHARS: [char; 14] = ['!', '#', '$', '%', '&', '*', ']', '[', '(', ')', '{', '}', '+', '-'];
 pub const UPPERCASE: [char; 26] = [
     'A',
     'B',
