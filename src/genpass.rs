@@ -12,24 +12,29 @@ pub struct Alphabet {
 
 impl Alphabet {
     pub fn new(config: &ConfigArgs) -> Alphabet {
-        let mut chars: Vec<char> = Vec::new();
+        let mut chars: Vec<char> = Vec::with_capacity(75);
 
         if config.enable_special {
             chars.append(&mut constants::SPECIAL_CHARS.to_vec());
         }
 
         if config.enable_upper {
-            chars.append(&mut constants::UPPERCASE.to_vec());
+            for i in 'A' as u8 .. 'Z' as u8 + 1 {
+                chars.push(i as char);
+            }
         }
 
         if config.enable_lower {
-            chars.append(&mut constants::LOWERCASE.to_vec());
+            for i in 'a' as u8 .. 'z' as u8 + 1 {
+                chars.push(i as char);
+            }
         }
 
         if config.enable_digit {
-            let mut digits = constants::DIGITS.to_vec();
-            chars.append(&mut digits.clone());
-            chars.append(&mut digits);
+            for i in '0' as u8 .. '9' as u8 + 1 {
+                chars.push(i as char);
+                chars.push(i as char);
+            }
         }
 
         let size = chars.len();
