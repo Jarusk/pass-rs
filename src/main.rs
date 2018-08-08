@@ -2,10 +2,9 @@ extern crate rand;
 
 use std::process;
 
-mod parseargs;
 mod constants;
 mod genpass;
-
+mod parseargs;
 
 fn main() {
     // Set default config
@@ -22,7 +21,6 @@ fn main() {
 
     // Generate our alphabet to choose chars from
     let mut abc = genpass::Alphabet::new(&config);
-
 
     let mut pass = String::new();
 

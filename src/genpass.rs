@@ -1,8 +1,8 @@
 use rand::distributions::{IndependentSample, Range};
-use rand::{self, Isaac64Rng, SeedableRng, Rng};
+use rand::{self, Isaac64Rng, Rng, SeedableRng};
 
-use parseargs::ConfigArgs;
 use constants;
+use parseargs::ConfigArgs;
 
 pub struct Alphabet {
     chars: Vec<char>,
@@ -19,19 +19,19 @@ impl Alphabet {
         }
 
         if config.enable_upper {
-            for i in 'A' as u8 .. 'Z' as u8 + 1 {
+            for i in 'A' as u8..'Z' as u8 + 1 {
                 chars.push(i as char);
             }
         }
 
         if config.enable_lower {
-            for i in 'a' as u8 .. 'z' as u8 + 1 {
+            for i in 'a' as u8..'z' as u8 + 1 {
                 chars.push(i as char);
             }
         }
 
         if config.enable_digit {
-            for i in '0' as u8 .. '9' as u8 + 1 {
+            for i in '0' as u8..'9' as u8 + 1 {
                 chars.push(i as char);
                 chars.push(i as char);
             }

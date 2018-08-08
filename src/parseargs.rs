@@ -3,7 +3,6 @@ use std::str::FromStr;
 
 use constants;
 
-
 pub struct ConfigArgs {
     pub pass_length: usize,
     pub print_help: bool,
