@@ -36,6 +36,7 @@ fn main() {
 // Print usage data
 fn print_usage() {
     let mut message = String::new();
+    message += "Version 0.2.0\n\n";
     message += "Usage: pass-rs: [options] [len]\n\n";
     message += "By default, the password is 38 characters long.\n";
     message += "For a custom length, simply specify a numeric length as an argument.\n\n";
