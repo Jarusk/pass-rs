@@ -2,8 +2,8 @@ use rand::distributions::Uniform;
 use rand::{Rng, RngCore, SeedableRng};
 use rand::rngs::StdRng;
 
-use constants;
-use parseargs::ConfigArgs;
+use crate::constants;
+use crate::parseargs::ConfigArgs;
 
 pub struct Alphabet {
     chars: Vec<char>,

@@ -21,7 +21,7 @@ Then, simply clone this repo and install via `cargo`:
 ```
 git clone https://github.com/Jarusk/pass-rs.git
 cd pass-rs/
-cargo install
+cargo install --path .
 ```
 
 ## Usage

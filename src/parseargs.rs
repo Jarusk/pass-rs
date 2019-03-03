@@ -1,7 +1,7 @@
 use std::env;
 use std::str::FromStr;
 
-use constants;
+use crate::constants;
 
 pub struct ConfigArgs {
     pub pass_length: usize,
