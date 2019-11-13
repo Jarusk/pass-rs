@@ -43,7 +43,7 @@ impl Alphabet {
         rand::thread_rng().fill_bytes(&mut seed);
 
         Alphabet {
-            chars: chars,
+            chars,
             range: Uniform::new(0, alphabet_length),
             rng: StdRng::from_seed(seed)
         }

@@ -1,6 +1,6 @@
 [package]
 name = "pass-rs"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Matt Yaraskavitch <yaraskavitch.matt@gmail.com>"]
 edition = "2018"
 license = "GPL-3.0"

@@ -52,10 +52,9 @@ impl ConfigArgs {
     }
 
     fn validate_possible_numeric(&mut self, arg: &str) {
-        let parse_attempt = usize::from_str(arg);
 
-        if parse_attempt.is_ok() {
-            self.pass_length = parse_attempt.unwrap();
+        if let Ok(x) = usize::from_str(arg) {
+            self.pass_length = x;
             return;
         }
 
