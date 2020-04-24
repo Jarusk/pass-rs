@@ -13,7 +13,9 @@ pub struct Alphabet {
 
 impl Alphabet {
     pub fn new(config: &ConfigArgs) -> Alphabet {
-        let mut chars: Vec<char> = Vec::with_capacity(75);
+        // Enough space to hold all the alphanumeric characters (upper and lower case)
+        // as well as the 14 special characters defined in constants.rs
+        let mut chars: Vec<char> = Vec::with_capacity(76);
 
         if config.enable_special {
             chars.append(&mut constants::SPECIAL_CHARS.to_vec());
