@@ -36,7 +36,9 @@ fn main() {
 // Print usage data
 fn print_usage() {
     let mut message = String::new();
-    message += "Version 0.2.3\n\n";
+    // Cargo sets this env var based on the value in the toml file.
+    // We want to error out if not defined, as the env macro does
+    message += &format!("Version {}\n\n", env!("CARGO_PKG_VERSION"));
     message += "Usage: pass-rs: [options] [len]\n\n";
     message += "By default, the password is 38 characters long.\n";
     message += "For a custom length, simply specify a numeric length as an argument.\n\n";
