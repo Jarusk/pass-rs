@@ -30,7 +30,10 @@ fn main() {
     }
 
     //emit password to user
-    println!("{}", pass);
+    match config.enable_newline {
+        true =>  println!("{}", pass),
+        false =>  print!("{}", pass),
+    }
 }
 
 // Print usage data
@@ -43,9 +46,10 @@ fn print_usage() {
     message += "By default, the password is 38 characters long.\n";
     message += "For a custom length, simply specify a numeric length as an argument.\n\n";
     message += "Options:\n";
+    message += "-n             Enable newline when printing password\n";
+    message += "-nd            Disable numeric characters\n";
     message += "-nl            Disable lowercase characters\n";
     message += "-nu            Disable uppercase characters\n";
-    message += "-nd            Disable numeric characters\n";
     message += "-s             Enable special characters in generations (!, @, #, $, etc)\n";
     message += "-h, --help     Print this help dialogue\n\n";
 
