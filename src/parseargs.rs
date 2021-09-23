@@ -4,34 +4,34 @@ use std::str::FromStr;
 use crate::constants;
 
 pub struct ConfigArgs {
-    pub pass_length: usize,
-    pub print_help: bool,
     pub enable_digit: bool,
-    pub enable_upper: bool,
     pub enable_lower: bool,
     pub enable_special: bool,
+    pub enable_upper: bool,
+    pub pass_length: usize,
+    pub print_help: bool,
 }
 
 impl ConfigArgs {
     pub fn new() -> ConfigArgs {
         ConfigArgs {
+            enable_digit: constants::DEFAULT_ENABLE_DIGIT,
+            enable_lower: constants::DEFAULT_ENABLE_LOWER,
+            enable_special: constants::DEFAULT_ENABLE_SPECIAL,
+            enable_upper: constants::DEFAULT_ENABLE_UPPER,
             pass_length: constants::DEFAULT_PASS_LEN,
             print_help: constants::DEFAULT_PRINT_HELP,
-            enable_lower: constants::DEFAULT_ENABLE_LOWER,
-            enable_upper: constants::DEFAULT_ENABLE_UPPER,
-            enable_digit: constants::DEFAULT_ENABLE_DIGIT,
-            enable_special: constants::DEFAULT_ENABLE_SPECIAL,
         }
     }
 
     pub fn read_args(&mut self) {
         for (count, arg) in env::args().enumerate() {
             match arg.as_ref() {
+                "-h" | "--help" => self.print_help = true,
+                "-nd" => self.enable_digit = false,
                 "-nl" => self.enable_lower = false,
                 "-nu" => self.enable_upper = false,
-                "-nd" => self.enable_digit = false,
                 "-s" => self.enable_special = true,
-                "-h" | "--help" => self.print_help = true,
                 _ => {
                     if count > 0 {
                         self.validate_possible_numeric(arg.as_ref())
