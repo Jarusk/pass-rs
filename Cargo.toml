@@ -1,9 +1,9 @@
 [package]
 name = "pass-rs"
-version = "0.2.5"
+version = "0.3.0"
 authors = ["Matt Yaraskavitch <yaraskavitch.matt@gmail.com>"]
 edition = "2018"
 license = "GPL-3.0"
 
 [dependencies]
-rand = "0.7"
+rand = "0.8"
