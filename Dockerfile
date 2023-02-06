@@ -6,7 +6,7 @@ COPY Cargo.toml Cargo.lock /build/
 WORKDIR /build
 RUN cargo build --release
 
-FROM alpine:3.14 as tool
+FROM alpine:3.17 as tool
 COPY --from=rust_alpine /build/target/release/pass-rs /usr/local/bin
 ENTRYPOINT [ "pass-rs" ]
 CMD [ "--help" ]
