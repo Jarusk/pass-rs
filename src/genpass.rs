@@ -1,6 +1,6 @@
 use rand::distributions::Uniform;
-use rand::{Rng, RngCore, SeedableRng};
 use rand::rngs::StdRng;
+use rand::{Rng, RngCore, SeedableRng};
 
 use crate::constants;
 use crate::parseargs::ConfigArgs;
@@ -22,19 +22,19 @@ impl Alphabet {
         }
 
         if config.enable_upper {
-            for i in 'A' as u8..'Z' as u8 + 1 {
+            for i in b'A'..b'Z' + 1 {
                 chars.push(i as char);
             }
         }
 
         if config.enable_lower {
-            for i in 'a' as u8..'z' as u8 + 1 {
+            for i in b'a'..b'z' + 1 {
                 chars.push(i as char);
             }
         }
 
         if config.enable_digit {
-            for i in '0' as u8..'9' as u8 + 1 {
+            for i in b'0'..b'9' + 1 {
                 chars.push(i as char);
                 chars.push(i as char);
             }
@@ -47,7 +47,7 @@ impl Alphabet {
         Alphabet {
             chars,
             range: Uniform::new(0, alphabet_length),
-            rng: StdRng::from_seed(seed)
+            rng: StdRng::from_seed(seed),
         }
     }
 
