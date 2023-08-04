@@ -22,19 +22,19 @@ impl Alphabet {
         }
 
         if config.enable_upper {
-            for i in 'A' as u8..'Z' as u8 + 1 {
+            for i in b'A'..b'Z' + 1 {
                 chars.push(i as char);
             }
         }
 
         if config.enable_lower {
-            for i in 'a' as u8..'z' as u8 + 1 {
+            for i in b'a'..b'z' + 1 {
                 chars.push(i as char);
             }
         }
 
         if config.enable_digit {
-            for i in '0' as u8..'9' as u8 + 1 {
+            for i in b'0'..b'9' + 1 {
                 chars.push(i as char);
                 chars.push(i as char);
             }
