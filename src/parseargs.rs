@@ -55,7 +55,6 @@ impl ConfigArgs {
     }
 
     fn validate_possible_numeric(&mut self, arg: &str) {
-
         if let Ok(x) = usize::from_str(arg) {
             self.pass_length = x;
             return;

@@ -1,6 +1,6 @@
 use rand::distributions::Uniform;
-use rand::{Rng, RngCore, SeedableRng};
 use rand::rngs::StdRng;
+use rand::{Rng, RngCore, SeedableRng};
 
 use crate::constants;
 use crate::parseargs::ConfigArgs;
@@ -47,7 +47,7 @@ impl Alphabet {
         Alphabet {
             chars,
             range: Uniform::new(0, alphabet_length),
-            rng: StdRng::from_seed(seed)
+            rng: StdRng::from_seed(seed),
         }
     }
 

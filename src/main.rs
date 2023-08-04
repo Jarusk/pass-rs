@@ -31,8 +31,8 @@ fn main() {
 
     //emit password to user
     match config.enable_newline {
-        true =>  println!("{}", pass),
-        false =>  print!("{}", pass),
+        true => println!("{}", pass),
+        false => print!("{}", pass),
     }
 }
 
