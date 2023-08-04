@@ -4,14 +4,12 @@ on: ['push']
 
 jobs:
   ci:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
-        rust:
-          - stable
-          - beta
-          - nightly
+        rust: [stable, beta, nightly]
+        os: [macos-latest, windows-latest, ubuntu-latest]
 
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
 
