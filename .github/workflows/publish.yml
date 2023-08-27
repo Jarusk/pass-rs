@@ -6,56 +6,24 @@ on:
       - "**"
 
 jobs:
-  bump:
+  docker:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-    
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions-rs/toolchain@v1
-        name: Setup 
-        with:
-          profile: minimal
-          toolchain: stable
-
-      - uses: actions-rs/cargo@v1
-        name: Install cargo-edit
-        with:
-          command: install
-          args: cargo-edit
-      
-      - uses: bhowell2/github-substring-action@1.0.2
-        id: version
-        with:
-          value: ${{  github.ref_name }}
-          index_of_str: "v"
-      
-      - uses: actions-rs/cargo@v1
-        name: Bump cargo version to released
-        with:
-          command: set-version
-          args: ${{ steps.version.outputs.substring  }}
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Bumped version to ${{ steps.version.outputs.substring  }}"
-          branch: main
-
-  docker:
-    runs-on: ubuntu-latest
-    steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
