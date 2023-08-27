@@ -27,7 +27,7 @@ checksum = "7b2f96d100e1cf1929e7719b7edb3b90ab5298072638fccd77be9ce942ecdfce"
 
 [[package]]
 name = "pass-rs"
-version = "0.3.4"
+version = "0.3.1"
 dependencies = [
  "rand",
 ]
