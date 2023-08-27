@@ -38,3 +38,9 @@ Options:
 -s             Enable special characters in generations (!, @, #, $, etc)
 -h, --help     Print this help dialogue
 ```
+
+## Development
+### Cutting a Release
+1. Install `cargo-edit`: `cargo install cargo-edit`
+2. Set version to the same as the upcoming draft release: `cargo set-version 1.2.3`
+3. Create a PR. Once merged, publish the release.
