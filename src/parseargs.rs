@@ -4,7 +4,7 @@ use std::str::FromStr;
 use crate::constants;
 
 pub struct ConfigArgs {
-    pub enable_newline: bool,
+    pub disable_newline: bool,
     pub enable_digit: bool,
     pub enable_lower: bool,
     pub enable_special: bool,
@@ -16,7 +16,7 @@ pub struct ConfigArgs {
 impl ConfigArgs {
     pub fn new() -> ConfigArgs {
         ConfigArgs {
-            enable_newline: constants::DEFAULT_ENABLE_NEWLINE,
+            disable_newline: constants::DEFAULT_DISABLE_NEWLINE,
             enable_digit: constants::DEFAULT_ENABLE_DIGIT,
             enable_lower: constants::DEFAULT_ENABLE_LOWER,
             enable_special: constants::DEFAULT_ENABLE_SPECIAL,
@@ -30,7 +30,7 @@ impl ConfigArgs {
         for (count, arg) in env::args().enumerate() {
             match arg.as_ref() {
                 "-h" | "--help" => self.print_help = true,
-                "-n" => self.enable_newline = true,
+                "-n" => self.disable_newline = true,
                 "-nd" => self.enable_digit = false,
                 "-nl" => self.enable_lower = false,
                 "-nu" => self.enable_upper = false,
