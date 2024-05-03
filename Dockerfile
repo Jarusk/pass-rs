@@ -1,4 +1,4 @@
-FROM rust:alpine3.18 as builder
+FROM rust:alpine3.19 as builder
 
 COPY src/ /build/src/
 COPY Cargo.toml Cargo.lock /build/

@@ -32,9 +32,10 @@ By default, the password is 38 characters long.
 For a custom length, simply specify a numeric length as an argument.
 
 Options:
+-n             Disable newline when printing password
+-nd            Disable numeric characters
 -nl            Disable lowercase characters
 -nu            Disable uppercase characters
--nd            Disable numeric characters
 -s             Enable special characters in generations (!, @, #, $, etc)
 -h, --help     Print this help dialogue
 ```
