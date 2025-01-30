@@ -1,4 +1,6 @@
-FROM rust:alpine3.19 as builder
+FROM rust:alpine3.21 AS builder
+
+RUN apk add --no-cache musl-dev
 
 COPY src/ /build/src/
 COPY Cargo.toml Cargo.lock /build/

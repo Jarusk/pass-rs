@@ -1,4 +1,4 @@
-use rand::distributions::Uniform;
+use rand::distr::Uniform;
 use rand::rngs::StdRng;
 use rand::{Rng, RngCore, SeedableRng};
 
@@ -45,11 +45,11 @@ impl Alphabet {
 
         let alphabet_length = chars.len();
         let mut seed = [0u8; 32];
-        rand::thread_rng().fill_bytes(&mut seed);
+        rand::rng().fill_bytes(&mut seed);
 
         Alphabet {
             chars,
-            range: Uniform::new(0, alphabet_length),
+            range: Uniform::new(0, alphabet_length).unwrap(),
             rng: StdRng::from_seed(seed),
         }
     }
@@ -151,7 +151,7 @@ mod tests {
         let seed = [0; 32];
         alpha.set_seed(seed);
 
-        let expected = ['X', '4', 'F', 'a', '1', 'i', 'H', '0', '9', 'R'];
+        let expected = ['d', 'X', 'F', '4', '0', 'F', 'u', 'a', 'i', '1'];
 
         let mut result = Vec::new();
 
