@@ -1,6 +1,6 @@
 use rand::distr::Uniform;
 use rand::rngs::StdRng;
-use rand::{Rng, RngCore, SeedableRng};
+use rand::{RngExt, SeedableRng};
 
 use crate::constants;
 use crate::parseargs::ConfigArgs;
@@ -45,7 +45,7 @@ impl Alphabet {
 
         let alphabet_length = chars.len();
         let mut seed = [0u8; 32];
-        rand::rng().fill_bytes(&mut seed);
+        rand::fill(&mut seed);
 
         Alphabet {
             chars,

@@ -53,5 +53,5 @@ fn print_usage() {
     message += "-s             Enable special characters in generations (!, @, #, $, etc)\n";
     message += "-h, --help     Print this help dialogue\n\n";
 
-    println!("{}", &message);
+    println!("{}", message);
 }
