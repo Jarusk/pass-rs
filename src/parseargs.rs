@@ -60,7 +60,7 @@ impl ConfigArgs {
             return;
         }
 
-        println!("ERROR: invalid argument \"{}\"\n", &arg);
+        println!("ERROR: invalid argument \"{}\"\n", arg);
         self.print_help = true;
     }
 }
